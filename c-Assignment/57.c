@@ -4,21 +4,26 @@ int main() {
     int n;
     scanf("%d", &n);
 
-    int size = 2 * n - 1; 
+    int size = 2 * n - 1;
 
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
-            int top = i;
-            int left = j;
-            int bottom = size - 1 - i;
-            int right = size - 1 - j;
+            int num;
 
-            int min = top;
-            if (left < min) min = left;
-            if (bottom < min) min = bottom;
-            if (right < min) min = right;
+            if (i <= j && i <= size - 1 - j && i <= size - 1 - i) {
+                num = i + 1; 
+            }
+            else if (j <= i && j <= size - 1 - i && j <= size - 1 - j) {
+                num = j + 1; 
+            }
+            else if (size - 1 - i <= j && size - 1 - i <= i && size - 1 - i <= size - 1 - j) {
+                num = size - i; 
+            }
+            else {
+                num = size - j; 
+            }
 
-            printf("%d", min + 1);
+            printf("%d", num);
         }
         printf("\n");
     }
